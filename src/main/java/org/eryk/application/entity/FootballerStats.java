@@ -1,0 +1,99 @@
+package org.eryk.application.entity;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "footballer_stats")
+public class FootballerStats {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "first_team")
+    private int firstTeamApps;
+
+    @Column(name = "subs")
+    private int subApps;
+    private int goals;
+    private int assists;
+
+    @Column(name = "first_team_total")
+    private int firstTeamAppsTotal;
+
+    @Column(name = "subs_total")
+    private int subAsTotal;
+
+    @Column(name = "goals_total")
+    private int goalsTotal;
+
+    @Column(name = "assists_total")
+    private int assistsTotal;
+
+    public FootballerStats() {
+    }
+
+    public int getFirstTeamApps() {
+        return firstTeamApps;
+    }
+
+    public void setFirstTeamApps(int firstTeamApps) {
+        this.firstTeamApps = firstTeamApps;
+    }
+
+    public int getSubApps() {
+        return subApps;
+    }
+
+    public void setSubApps(int subApps) {
+        this.subApps = subApps;
+    }
+
+    public int getGoals() {
+        return goals;
+    }
+
+    public void setGoals(int goals) {
+        this.goals = goals;
+    }
+
+    public int getAssists() {
+        return assists;
+    }
+
+    public void setAssists(int assists) {
+        this.assists = assists;
+    }
+
+    public int getFirstTeamAppsTotal() {
+        return firstTeamAppsTotal;
+    }
+
+    public void setFirstTeamAppsTotal(int firstTeamAppsTotal) {
+        this.firstTeamAppsTotal = firstTeamAppsTotal;
+    }
+
+    public int getSubAsTotal() {
+        return subAsTotal;
+    }
+
+    public void setSubAsTotal(int subAsTotal) {
+        this.subAsTotal = subAsTotal;
+    }
+
+    public int getGoalsTotal() {
+        return goalsTotal;
+    }
+
+    public void setGoalsTotal(int goalsTotal) {
+        this.goalsTotal = goalsTotal;
+    }
+
+    public int getAssistsTotal() {
+        return assistsTotal;
+    }
+
+    public void setAssistsTotal(int assistsTotal) {
+        this.assistsTotal = assistsTotal;
+    }
+}
