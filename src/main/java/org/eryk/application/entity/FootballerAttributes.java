@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class FootballerAttributes {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private Double defending;
@@ -36,6 +35,11 @@ public class FootballerAttributes {
     private Double AM_R;
     private Double FS_R;
     private Double SS_R;
+
+    @OneToOne
+    @JoinColumn(name = "id")
+    @MapsId
+    private Footballer footballer;
 
     public FootballerAttributes() {
     }
@@ -230,5 +234,13 @@ public class FootballerAttributes {
 
     public void setSS_R(Double SS_R) {
         this.SS_R = SS_R;
+    }
+
+    public Footballer getFootballer() {
+        return footballer;
+    }
+
+    public void setFootballer(Footballer footballer) {
+        this.footballer = footballer;
     }
 }

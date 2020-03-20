@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class FootballerStats {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "first_team")
@@ -29,6 +28,11 @@ public class FootballerStats {
 
     @Column(name = "assists_total")
     private int assistsTotal;
+
+    @OneToOne
+    @JoinColumn(name = "id")
+    @MapsId
+    private Footballer footballer;
 
     public FootballerStats() {
     }
@@ -95,5 +99,13 @@ public class FootballerStats {
 
     public void setAssistsTotal(int assistsTotal) {
         this.assistsTotal = assistsTotal;
+    }
+
+    public Footballer getFootballer() {
+        return footballer;
+    }
+
+    public void setFootballer(Footballer footballer) {
+        this.footballer = footballer;
     }
 }

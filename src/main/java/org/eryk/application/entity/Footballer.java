@@ -28,6 +28,14 @@ public class Footballer {
 
     private boolean shortList;
 
+    @OneToOne(fetch = FetchType.LAZY,
+            mappedBy = "id")
+    private FootballerAttributes attributes;
+
+    @OneToOne(fetch = FetchType.LAZY,
+            mappedBy = "id")
+    private FootballerStats stats;
+
     public Footballer() {
     }
 
@@ -117,6 +125,22 @@ public class Footballer {
 
     public void setShortList(boolean shortList) {
         this.shortList = shortList;
+    }
+
+    public FootballerAttributes getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(FootballerAttributes attributes) {
+        this.attributes = attributes;
+    }
+
+    public FootballerStats getStats() {
+        return stats;
+    }
+
+    public void setStats(FootballerStats stats) {
+        this.stats = stats;
     }
 
     @Override
