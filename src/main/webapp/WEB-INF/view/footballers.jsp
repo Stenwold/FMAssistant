@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE HTML>
 
 <html>
@@ -13,14 +14,18 @@
                     <th>Position</th>
                     <th>Age</th>
                     <th>Club</th>
+                    <th>Defending</th>
+                    <th>Appearances this season</th>
                 </tr>
 
-                <c:forEach var="tempFootballer" items="${footballersList}">
+                <c:forEach var="tempFootballer" items="${footballersList}" varStatus="counter">
                     <tr>
                         <td>${tempFootballer.name}</td>
                         <td>${tempFootballer.position}</td>
                         <td>${tempFootballer.age}</td>
                         <td>${tempFootballer.club}</td>
+                        <td>${footballerAttributes[counter.index].defending}</td>
+                        <td>${footballerStats[counter.index].firstTeamApps}</td>
                     </tr>
                 </c:forEach>
             </table>
