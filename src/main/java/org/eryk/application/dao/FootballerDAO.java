@@ -1,0 +1,43 @@
+package org.eryk.application.dao;
+
+import org.eryk.application.entity.Footballer;
+import org.eryk.application.repository.FootballerRepository;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public class FootballerDAO implements FootballerRepository {
+
+    @Autowired
+    SessionFactory sessionFactory;
+
+    @Override
+    public List<Footballer> getFootballers() {
+
+        Session session = sessionFactory.getCurrentSession();
+
+        Query<Footballer> loadingQuery = session.createQuery("from Footballer",Footballer.class);
+
+        return loadingQuery.getResultList();
+    }
+
+    @Override
+    public Footballer getFootballer() {
+        return null;
+    }
+
+    @Override
+    public void saveFootballer() {
+
+    }
+
+    @Override
+    public void deleteFootballer() {
+
+    }
+}
