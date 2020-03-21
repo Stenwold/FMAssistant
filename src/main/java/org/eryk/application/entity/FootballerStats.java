@@ -9,18 +9,18 @@ public class FootballerStats {
     @Id
     private int id;
 
-    @Column(name = "first_team")
+    @Column(name = "first_team_apps")
     private int firstTeamApps;
 
-    @Column(name = "subs")
+    @Column(name = "sub_apps")
     private int subApps;
     private int goals;
     private int assists;
 
-    @Column(name = "first_team_total")
+    @Column(name = "ft_apps_total")
     private int firstTeamAppsTotal;
 
-    @Column(name = "subs_total")
+    @Column(name = "sub_apps_total")
     private int subAsTotal;
 
     @Column(name = "goals_total")

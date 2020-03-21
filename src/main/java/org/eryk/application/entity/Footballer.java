@@ -26,14 +26,16 @@ public class Footballer {
     @Column(name="years_to_hg")
     private String yearsToHG;
 
+
+
     private boolean shortList;
 
     @OneToOne(fetch = FetchType.LAZY,
-            mappedBy = "id")
+            mappedBy = "footballer")
     private FootballerAttributes attributes;
 
     @OneToOne(fetch = FetchType.LAZY,
-            mappedBy = "id")
+            mappedBy = "footballer")
     private FootballerStats stats;
 
     public Footballer() {
