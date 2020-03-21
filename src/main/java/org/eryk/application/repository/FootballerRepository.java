@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface FootballerRepository {
 
-    public List<Footballer> getFootballers();
+    List<Footballer> getFootballers();
 
-    public Footballer getFootballer();
+    Footballer getFootballer();
 
-    public void saveFootballer();
+    void saveFootballer();
 
-    public void deleteFootballer();
+    void deleteFootballer();
 }
