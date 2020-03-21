@@ -1,7 +1,7 @@
 package org.eryk.application.controller;
 
 import org.eryk.application.entity.Footballer;
-import org.eryk.application.services.FootballerService;
+import org.eryk.application.serviceInterfaces.FootballerServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +14,7 @@ import java.util.List;
 public class TestingController {
 
     @Autowired
-    private FootballerService footballerService;
+    private FootballerServiceInterface footballerService;
 
     @RequestMapping("/mvc")
     public String testMVCConfiguration(Model model){
