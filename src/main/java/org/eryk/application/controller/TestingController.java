@@ -42,6 +42,6 @@ public class TestingController {
         model.addAttribute("footballersList", list);
         model.addAttribute("footballerAttributes", attributes);
         model.addAttribute("footballerStats", stats);
-        return "footballers";
+        return "squad";
     }
 }
