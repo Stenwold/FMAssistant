@@ -1,0 +1,49 @@
+.positionbadge {
+    border-radius: 25px;
+    text-align: center;
+    width: 60px;
+    height: 20px;
+    font-family: "Arial", Helvetica, sans-serif;
+    line-height: 20px;
+    letter-spacing: 2px;
+}
+
+#gk {
+    background: #cc4a1f;
+    color: #FFF;
+}
+
+#cb {
+    background: #cca223;
+    color: #FFFFFF;
+}
+
+#fb {
+    background: #e3ce2d;
+    color: #FFFFFF;
+}
+
+#cm {
+    background: #39a818;
+    color: #FFFFFF;
+}
+
+#cam {
+    background: #47bbed;
+    color: #FFFFFF;
+}
+
+#w {
+    background: #6d1dad;
+    color: #FFFFFF;
+}
+
+#st {
+    background: #121ba1;
+    color: #FFFFFF;
+}
+
+#res {
+    background: #959695;
+    color: #FFFFFF;
+}
