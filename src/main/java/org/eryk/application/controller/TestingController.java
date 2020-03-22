@@ -27,7 +27,7 @@ public class TestingController {
         return "test-page";
     }
 
-    @RequestMapping("/showFootballers")
+    @RequestMapping("/Squad")
     public String testShowingFootballers(Model model){
 
         List<Footballer> list = footballerService.getFootballers();
@@ -43,5 +43,20 @@ public class TestingController {
         model.addAttribute("footballerAttributes", attributes);
         model.addAttribute("footballerStats", stats);
         return "squad";
+    }
+
+    @RequestMapping("/Home")
+    public String showHomePage(Model model){
+        return "home";
+    }
+
+    @RequestMapping("/Scouting")
+    public String showScoutingPage(Model model){
+        return "scouting";
+    }
+
+    @RequestMapping("/Coaches")
+    public String showCoachesPage(Model model){
+        return "coaches";
     }
 }

@@ -13,16 +13,16 @@
               rel="stylesheet"
               href="${pageContext.request.contextPath}/resources/navigation-top-bar.css">
 
-        <title>List of footballers</title>
+        <title>Squad management</title>
     </head>
     <body>
     <div id="placeholder" style="width:auto;height:100vh;background: #d4fafa;
     font-family: Arial, Helvetica, sans-serif;">
         <div class="topnav">
-            <a href="#home">Home</a>
-            <a class="active" href="#squad">Squad</a>
-            <a href="#scouting">Scouting</a>
-            <a href="#coaches">Coaches</a>
+            <a href="${pageContext.request.contextPath}/test/Home">Home</a>
+            <a class="active" href="${pageContext.request.contextPath}/test/Squad">Squad</a>
+            <a href="${pageContext.request.contextPath}/test/Scouting">Scouting</a>
+            <a href="${pageContext.request.contextPath}/test/Coaches">Coaches</a>
         </div>
 
     <h2 style="padding-left: 20px">Basic information about footballers in database:</h2>
