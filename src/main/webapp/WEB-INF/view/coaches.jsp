@@ -16,7 +16,7 @@
     <div class="topnav">
         <a href="${pageContext.request.contextPath}/test/Home">Home</a>
         <a href="${pageContext.request.contextPath}/test/Squad">Squad</a>
-        <a href="${pageContext.request.contextPath}/test/Squad">Scouting</a>
+        <a href="${pageContext.request.contextPath}/test/Scouting">Scouting</a>
         <a class="active" href="${pageContext.request.contextPath}/test/Coaches">Coaches</a>
     </div>
 </div>
