@@ -9,10 +9,10 @@ table.customTable {
     border-collapse: collapse;
 }
 table.customTable td, table.customTable th {
-    border: 1px solid #4A4A4A;
     padding: 3px 2px;
 }
 table.customTable tbody td {
+    border: 1px solid #4A4A4A;
     font-size: 13px;
     color: #E6E6E6;
 }
