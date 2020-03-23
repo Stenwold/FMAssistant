@@ -100,7 +100,7 @@ CREATE TABLE `fm_assistant_scheme`.`footballer_stats` (
 
     -- Insert data for testing purposes
     INSERT INTO `fm_assistant_scheme`.`footballer` VALUES
-    (1,'Eryk',23,'Poland','CD','Arsenal',1000000,20000,3,'club_hg',null,false);
+    (1,'Eryk',23,'Poland','CD','Arsenal',1000000,20000,3,'club_hg',null,false,'first team');
 
     INSERT INTO `fm_assistant_scheme`.`footballer_attributes` VALUES
     (1,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,
