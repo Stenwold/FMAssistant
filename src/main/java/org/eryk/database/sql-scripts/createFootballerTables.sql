@@ -20,6 +20,7 @@ CREATE TABLE `fm_assistant_scheme`.`footballer` (
     `hg_status` varchar (20) DEFAULT null,
     `years_to_hg` int(1) DEFAULT null,
     `shortList` boolean DEFAULT false,
+    `team_status` varchar (20) DEFAULT null,
 -- Primary key
     PRIMARY KEY (`id`)
 )

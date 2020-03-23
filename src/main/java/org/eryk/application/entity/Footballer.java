@@ -26,6 +26,8 @@ public class Footballer {
     @Column(name="years_to_hg")
     private String yearsToHG;
 
+    @Column(name="team_status")
+    private String teamStatus;
 
 
     private boolean shortList;
@@ -143,6 +145,14 @@ public class Footballer {
 
     public void setStats(FootballerStats stats) {
         this.stats = stats;
+    }
+
+    public String getTeamStatus() {
+        return teamStatus;
+    }
+
+    public void setTeamStatus(String teamStatus) {
+        this.teamStatus = teamStatus;
     }
 
     @Override
