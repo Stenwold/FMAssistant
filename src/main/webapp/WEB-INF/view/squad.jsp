@@ -42,7 +42,7 @@
                 </thead>
                 <tr>
                     <td><div class="positionbadge" id="gk">GK</div></td>
-                    <td>Placeholder</td>
+                    <td>${footballersList[0].name}</td>
                     <td></td>
                     <td></td>
                     <td></td>

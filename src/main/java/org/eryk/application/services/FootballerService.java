@@ -36,4 +36,10 @@ public class FootballerService implements FootballerServiceInterface {
     public void deleteFootballer() {
 
     }
+
+    @Override
+    @Transactional
+    public List<Footballer> getTeamFootballers(String team) {
+        return footballerDAO.getTeamFootballers(team);
+    }
 }

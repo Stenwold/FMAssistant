@@ -40,4 +40,15 @@ public class FootballerDAO implements FootballerRepository {
     public void deleteFootballer() {
 
     }
+
+    @Override
+    public List<Footballer> getTeamFootballers(String team) {
+
+        Session session = sessionFactory.getCurrentSession();
+        Query<Footballer> loadingQuery = session.createQuery("from Footballer f where f.club =: team", Footballer.class);
+        loadingQuery.setParameter("team",team);
+        return loadingQuery.getResultList();
+    }
+
+
 }

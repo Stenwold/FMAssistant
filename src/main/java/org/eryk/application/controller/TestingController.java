@@ -30,7 +30,7 @@ public class TestingController {
     @RequestMapping("/Squad")
     public String testShowingFootballers(Model model){
 
-        List<Footballer> list = footballerService.getFootballers();
+        List<Footballer> list = footballerService.getTeamFootballers("Arsenal");
         List<FootballerAttributes> attributes = new ArrayList<>();
         List<FootballerStats> stats = new ArrayList<>();
 

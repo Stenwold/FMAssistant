@@ -13,4 +13,7 @@ public interface FootballerRepository {
     void saveFootballer();
 
     void deleteFootballer();
+
+
+    List<Footballer> getTeamFootballers(String team);
 }
