@@ -35,7 +35,7 @@
                     <tr>
                         <th style="width:60px"></th>
                         <th>Footballer</th>
-                        <th>Position</th>
+                        <th>Team status</th>
                         <th>Age</th>
                         <th>Rate</th>
                     </tr>
@@ -43,7 +43,7 @@
                 <tr>
                     <td><div class="positionbadge" id="gk">GK</div></td>
                     <td>${footballersList[0].name}</td>
-                    <td></td>
+                    <td>${footballersList[0].teamStatus}</td>
                     <td></td>
                     <td></td>
                 </tr>
@@ -216,7 +216,7 @@
                     <td></td>
                 </tr>
             </table>
-        <h2 style="padding-left: 20px">U23/Reserves Team Table : now shows all players</h2>
+        <h2 style="padding-left: 20px">U23/Reserves Team Table :</h2>
 
         <table class = customTable>
             <thead>
@@ -231,15 +231,73 @@
             </tr>
             </thead>
             <c:forEach var="tempFootballer" items="${footballersList}" varStatus="counter">
-                <tr>
-                    <td>${tempFootballer.name}</td>
-                    <td>${tempFootballer.position}</td>
-                    <td>${tempFootballer.age}</td>
-                    <td>${tempFootballer.club}</td>
-                    <td>Not calculated yet</td>
-                    <td>${tempFootballer.teamStatus}</td>
-                    <td>${footballerAttributes[counter.index].mobility}</td>
-                </tr>
+                <c:if test="${tempFootballer.teamStatus =='U23/Reserves'}">
+                    <tr>
+                        <td>${tempFootballer.name}</td>
+                        <td>${tempFootballer.position}</td>
+                        <td>${tempFootballer.age}</td>
+                        <td>${tempFootballer.club}</td>
+                        <td>Not calculated yet</td>
+                        <td>${tempFootballer.teamStatus}</td>
+                        <td>${footballerAttributes[counter.index].mobility}</td>
+                    </tr>
+                </c:if>
+            </c:forEach>
+        </table>
+        <h2 style="padding-left: 20px">Loaned/for loan players Table :</h2>
+
+        <table class = customTable>
+            <thead>
+            <tr>
+                <th>Footballer</th>
+                <th>Position</th>
+                <th>Age</th>
+                <th>Club</th>
+                <th>Rate</th>
+                <th>Team Status</th>
+                <th>Mobility</th>
+            </tr>
+            </thead>
+            <c:forEach var="tempFootballer" items="${footballersList}" varStatus="counter">
+                <c:if test="${tempFootballer.teamStatus =='Loan'}">
+                    <tr>
+                        <td>${tempFootballer.name}</td>
+                        <td>${tempFootballer.position}</td>
+                        <td>${tempFootballer.age}</td>
+                        <td>${tempFootballer.club}</td>
+                        <td>Not calculated yet</td>
+                        <td>${tempFootballer.teamStatus}</td>
+                        <td>${footballerAttributes[counter.index].mobility}</td>
+                    </tr>
+                </c:if>
+            </c:forEach>
+        </table>
+        <h2 style="padding-left: 20px">Not wanted players Table:</h2>
+
+        <table class = customTable>
+            <thead>
+            <tr>
+                <th>Footballer</th>
+                <th>Position</th>
+                <th>Age</th>
+                <th>Club</th>
+                <th>Rate</th>
+                <th>Team Status</th>
+                <th>Mobility</th>
+            </tr>
+            </thead>
+            <c:forEach var="tempFootballer" items="${footballersList}" varStatus="counter">
+                <c:if test="${tempFootballer.teamStatus =='Not wanted'}">
+                    <tr>
+                        <td>${tempFootballer.name}</td>
+                        <td>${tempFootballer.position}</td>
+                        <td>${tempFootballer.age}</td>
+                        <td>${tempFootballer.club}</td>
+                        <td>Not calculated yet</td>
+                        <td>${tempFootballer.teamStatus}</td>
+                        <td>${footballerAttributes[counter.index].mobility}</td>
+                    </tr>
+                </c:if>
             </c:forEach>
         </table>
     </div>
