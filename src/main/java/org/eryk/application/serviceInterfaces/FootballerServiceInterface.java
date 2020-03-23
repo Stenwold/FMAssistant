@@ -8,9 +8,9 @@ public interface FootballerServiceInterface {
 
     List<Footballer> getFootballers();
 
-    Footballer getFootballer();
+    Footballer getFootballer(int id);
 
-    void saveFootballer();
+    void saveFootballer(Footballer footballer);
 
     void deleteFootballer();
 

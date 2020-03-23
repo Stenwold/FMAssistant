@@ -23,13 +23,15 @@ public class FootballerService implements FootballerServiceInterface {
     }
 
     @Override
-    public Footballer getFootballer() {
-        return null;
+    @Transactional
+    public Footballer getFootballer(int id) {
+        return footballerDAO.getFootballer(id);
     }
 
     @Override
-    public void saveFootballer() {
-
+    @Transactional
+    public void saveFootballer(Footballer footballer) {
+        footballerDAO.saveFootballer(footballer);
     }
 
     @Override
