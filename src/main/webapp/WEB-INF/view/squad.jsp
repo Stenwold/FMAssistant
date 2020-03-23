@@ -17,6 +17,10 @@
               rel="stylesheet"
               href="${pageContext.request.contextPath}/resources/position-badges.css">
 
+        <link type="text/css"
+              rel="stylesheet"
+              href="${pageContext.request.contextPath}/resources/button.css">
+
         <title>Squad management</title>
     </head>
     <body>
@@ -46,27 +50,31 @@
                     <td>${footballersList[0].name}</td>
                     <td>${footballersList[0].teamStatus}</td>
                     <td></td>
+                    <td></td>
                     <td>
-                        <!-- construct an "update" link with customer id -->
+                        <div class="myButton">
                         <c:url var="updateLink" value="/test/changeTeamStatus">
                             <c:param name="footballerId" value="${footballersList[0].id}" />
                             <c:param name="newStatus" value="U23/Reserves"/>
                         </c:url>
-                        <a href="${updateLink}">Move to U23</a>
+                        <a href="${updateLink}">> U23</a>
+                        </div>
 
-                        <!-- construct an "update" link with customer id -->
+                        <div class="myButton">
                         <c:url var="updateLink" value="/test/changeTeamStatus">
                             <c:param name="footballerId" value="${footballersList[0].id}" />
                             <c:param name="newStatus" value="Loan"/>
                         </c:url>
-                        <a href="${updateLink}">Move to Loan</a>
+                        <a href="${updateLink}">> Loan</a>
+                        </div>
 
-                        <!-- construct an "update" link with customer id -->
+                        <div class="myButton">
                         <c:url var="updateLink" value="/test/changeTeamStatus">
                             <c:param name="footballerId" value="${footballersList[0].id}" />
                             <c:param name="newStatus" value="Not wanted"/>
                         </c:url>
-                        <a href="${updateLink}">Move to Not wanted</a>
+                        <a href="${updateLink}">> Not Wanted </a>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -274,6 +282,7 @@
                 <th>Rate</th>
                 <th>Team Status</th>
                 <th>Mobility</th>
+                <th>Action</th>
             </tr>
             </thead>
             <c:forEach var="tempFootballer" items="${footballersList}" varStatus="counter">
@@ -286,6 +295,31 @@
                         <td>Not calculated yet</td>
                         <td>${tempFootballer.teamStatus}</td>
                         <td>${footballerAttributes[counter.index].mobility}</td>
+                        <td>
+                            <div class="myButton">
+                                <c:url var="updateLink" value="/test/changeTeamStatus">
+                                    <c:param name="footballerId" value="${footballersList[0].id}" />
+                                    <c:param name="newStatus" value="First Team"/>
+                                </c:url>
+                                <a href="${updateLink}">> First Team</a>
+                            </div>
+
+                            <div class="myButton">
+                                <c:url var="updateLink" value="/test/changeTeamStatus">
+                                    <c:param name="footballerId" value="${footballersList[0].id}" />
+                                    <c:param name="newStatus" value="Loan"/>
+                                </c:url>
+                                <a href="${updateLink}">> Loan</a>
+                            </div>
+
+                            <div class="myButton">
+                                <c:url var="updateLink" value="/test/changeTeamStatus">
+                                    <c:param name="footballerId" value="${footballersList[0].id}" />
+                                    <c:param name="newStatus" value="Not wanted"/>
+                                </c:url>
+                                <a href="${updateLink}">> Not Wanted </a>
+                            </div>
+                        </td>
                     </tr>
                 </c:if>
             </c:forEach>
@@ -302,6 +336,7 @@
                 <th>Rate</th>
                 <th>Team Status</th>
                 <th>Mobility</th>
+                <th>Action</th>
             </tr>
             </thead>
             <c:forEach var="tempFootballer" items="${footballersList}" varStatus="counter">
@@ -314,6 +349,31 @@
                         <td>Not calculated yet</td>
                         <td>${tempFootballer.teamStatus}</td>
                         <td>${footballerAttributes[counter.index].mobility}</td>
+                        <td>
+                            <div class="myButton">
+                                <c:url var="updateLink" value="/test/changeTeamStatus">
+                                    <c:param name="footballerId" value="${footballersList[0].id}" />
+                                    <c:param name="newStatus" value="First Team"/>
+                                </c:url>
+                                <a href="${updateLink}">> First Team</a>
+                            </div>
+
+                            <div class="myButton">
+                                <c:url var="updateLink" value="/test/changeTeamStatus">
+                                    <c:param name="footballerId" value="${footballersList[0].id}" />
+                                    <c:param name="newStatus" value="U23/Reserves"/>
+                                </c:url>
+                                <a href="${updateLink}">> U23/Reserves</a>
+                            </div>
+
+                            <div class="myButton">
+                                <c:url var="updateLink" value="/test/changeTeamStatus">
+                                    <c:param name="footballerId" value="${footballersList[0].id}" />
+                                    <c:param name="newStatus" value="Not wanted"/>
+                                </c:url>
+                                <a href="${updateLink}">> Not Wanted </a>
+                            </div>
+                        </td>
                     </tr>
                 </c:if>
             </c:forEach>
@@ -330,6 +390,7 @@
                 <th>Rate</th>
                 <th>Team Status</th>
                 <th>Mobility</th>
+                <th>Action</th>
             </tr>
             </thead>
             <c:forEach var="tempFootballer" items="${footballersList}" varStatus="counter">
@@ -342,6 +403,31 @@
                         <td>Not calculated yet</td>
                         <td>${tempFootballer.teamStatus}</td>
                         <td>${footballerAttributes[counter.index].mobility}</td>
+                        <td>
+                            <div class="myButton">
+                                <c:url var="updateLink" value="/test/changeTeamStatus">
+                                    <c:param name="footballerId" value="${footballersList[0].id}" />
+                                    <c:param name="newStatus" value="First Team"/>
+                                </c:url>
+                                <a href="${updateLink}">> First Team</a>
+                            </div>
+
+                            <div class="myButton">
+                                <c:url var="updateLink" value="/test/changeTeamStatus">
+                                    <c:param name="footballerId" value="${footballersList[0].id}" />
+                                    <c:param name="newStatus" value="U23/Reserves"/>
+                                </c:url>
+                                <a href="${updateLink}">> U23/Reserves</a>
+                            </div>
+
+                            <div class="myButton">
+                                <c:url var="updateLink" value="/test/changeTeamStatus">
+                                    <c:param name="footballerId" value="${footballersList[0].id}" />
+                                    <c:param name="newStatus" value="Loan"/>
+                                </c:url>
+                                <a href="${updateLink}">> Not Wanted </a>
+                            </div>
+                        </td>
                     </tr>
                 </c:if>
             </c:forEach>
