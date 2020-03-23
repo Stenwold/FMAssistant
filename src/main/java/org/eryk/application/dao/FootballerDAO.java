@@ -27,13 +27,15 @@ public class FootballerDAO implements FootballerRepository {
     }
 
     @Override
-    public Footballer getFootballer() {
-        return null;
+    public Footballer getFootballer(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Footballer.class,id);
     }
 
     @Override
-    public void saveFootballer() {
-
+    public void saveFootballer(Footballer footballer) {
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(footballer);
     }
 
     @Override
