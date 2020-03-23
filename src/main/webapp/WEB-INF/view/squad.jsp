@@ -38,6 +38,7 @@
                         <th>Team status</th>
                         <th>Age</th>
                         <th>Rate</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tr>
@@ -45,7 +46,13 @@
                     <td>${footballersList[0].name}</td>
                     <td>${footballersList[0].teamStatus}</td>
                     <td></td>
-                    <td></td>
+                    <td>
+                        <!-- construct an "update" link with customer id -->
+                        <c:url var="updateLink" value="/test/changeTeamStatus">
+                            <c:param name="footballerId" value="${footballersList[0].id}" />
+                        </c:url>
+                        <a href="${updateLink}">Move to U23</a>
+                    </td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="gk">GK</div></td>
@@ -53,12 +60,6 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                </tr>
-                <tr>
-                    <td><div class="positionbadge" id="cb">CB</div></td>
-                    <td>Placeholder</td>
-                    <td></td>
-                    <td></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -67,6 +68,15 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><div class="positionbadge" id="cb">CB</div></td>
+                    <td>Placeholder</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="cb">CB</div></td>
@@ -74,10 +84,12 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="cb">CB</div></td>
                     <td>Placeholder</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -88,6 +100,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="fb">RB</div></td>
@@ -95,17 +108,20 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                </tr>
-                <tr>
-                    <td><div class="positionbadge" id="fb">LB</div></td>
-                    <td>Placeholder</td>
-                    <td></td>
-                    <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="fb">LB</div></td>
                     <td>Placeholder</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><div class="positionbadge" id="fb">LB</div></td>
+                    <td>Placeholder</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -116,10 +132,12 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="cm">DLP</div></td>
                     <td>Placeholder</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -130,6 +148,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="cm">MEZ</div></td>
@@ -137,17 +156,20 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                </tr>
-                <tr>
-                    <td><div class="positionbadge" id="cam">CAM</div></td>
-                    <td>Placeholder</td>
-                    <td></td>
-                    <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="cam">CAM</div></td>
                     <td>Placeholder</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><div class="positionbadge" id="cam">CAM</div></td>
+                    <td>Placeholder</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -158,6 +180,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="w">RW</div></td>
@@ -165,17 +188,20 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                </tr>
-                <tr>
-                    <td><div class="positionbadge" id="w">LW</div></td>
-                    <td>Placeholder</td>
-                    <td></td>
-                    <td></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="w">LW</div></td>
                     <td>Placeholder</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><div class="positionbadge" id="w">LW</div></td>
+                    <td>Placeholder</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -186,10 +212,12 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="st">ST</div></td>
                     <td>Placeholder</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -200,6 +228,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="res">RW</div></td>
@@ -207,10 +236,12 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td><div class="positionbadge" id="res">ST</div></td>
                     <td>Placeholder</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

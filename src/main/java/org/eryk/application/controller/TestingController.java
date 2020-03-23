@@ -7,10 +7,14 @@ import org.eryk.application.serviceInterfaces.FootballerServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/test")
@@ -58,5 +62,14 @@ public class TestingController {
     @RequestMapping("/Coaches")
     public String showCoachesPage(Model model){
         return "coaches";
+    }
+
+    @RequestMapping("/changeTeamStatus")
+    public String changeTeamStatus(@RequestParam("footballerId") int id){
+
+        Footballer footballer = footballerService.getFootballer(id);
+        footballer.setTeamStatus("U23/Reserves");
+        footballerService.saveFootballer(footballer);
+        return "redirect:/test/Squad";
     }
 }
