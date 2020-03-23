@@ -13,12 +13,17 @@ public class Footballer {
     private String name;
     private int age;
     private String country;
-    private String position;
+
+    @Enumerated(EnumType.STRING)
+    private Position position;
 
     private String club;
     private int value;
     private int wage;
     private int contract;
+
+    @Column(name="pos_rating")
+    private double positionRating;
 
     @Column(name="hg_status")
     private String hgStatus;
@@ -67,12 +72,20 @@ public class Footballer {
         this.country = country;
     }
 
-    public String getPosition() {
+    public Position getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(Position position) {
         this.position = position;
+    }
+
+    public double getPositionRating() {
+        return positionRating;
+    }
+
+    public void setPositionRating(double positionRating) {
+        this.positionRating = positionRating;
     }
 
     public String getClub() {

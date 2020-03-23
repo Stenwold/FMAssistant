@@ -11,12 +11,13 @@ CREATE TABLE `fm_assistant_scheme`.`footballer` (
     `name` varchar (30) DEFAULT null,
     `age` int(2) DEFAULT null,
     `country` varchar (20) DEFAULT null,
-    `position` varchar (20) DEFAULT null,
+    `position` ENUM('GK','CB','RB','LB','CM','CAM','RW','LW','ST') DEFAULT null,
 -- More specified data
     `club` varchar (20) DEFAULT null,
     `value` int (10) DEFAULT null,
     `wage` int (10) DEFAULT null,
     `contract` int(1) DEFAULT null,
+    `pos_rating` double DEFAULT null,
     `hg_status` varchar (20) DEFAULT null,
     `years_to_hg` int(1) DEFAULT null,
     `shortList` boolean DEFAULT false,
@@ -100,7 +101,7 @@ CREATE TABLE `fm_assistant_scheme`.`footballer_stats` (
 
     -- Insert data for testing purposes
     INSERT INTO `fm_assistant_scheme`.`footballer` VALUES
-    (1,'Eryk',23,'Poland','CD','Arsenal',1000000,20000,3,'club_hg',null,false,'first team');
+    (1,'Eryk',23,'Poland','CB','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'first team');
 
     INSERT INTO `fm_assistant_scheme`.`footballer_attributes` VALUES
     (1,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,
