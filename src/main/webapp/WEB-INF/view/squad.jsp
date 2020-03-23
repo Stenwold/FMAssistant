@@ -50,8 +50,23 @@
                         <!-- construct an "update" link with customer id -->
                         <c:url var="updateLink" value="/test/changeTeamStatus">
                             <c:param name="footballerId" value="${footballersList[0].id}" />
+                            <c:param name="newStatus" value="U23/Reserves"/>
                         </c:url>
                         <a href="${updateLink}">Move to U23</a>
+
+                        <!-- construct an "update" link with customer id -->
+                        <c:url var="updateLink" value="/test/changeTeamStatus">
+                            <c:param name="footballerId" value="${footballersList[0].id}" />
+                            <c:param name="newStatus" value="Loan"/>
+                        </c:url>
+                        <a href="${updateLink}">Move to Loan</a>
+
+                        <!-- construct an "update" link with customer id -->
+                        <c:url var="updateLink" value="/test/changeTeamStatus">
+                            <c:param name="footballerId" value="${footballersList[0].id}" />
+                            <c:param name="newStatus" value="Not wanted"/>
+                        </c:url>
+                        <a href="${updateLink}">Move to Not wanted</a>
                     </td>
                 </tr>
                 <tr>

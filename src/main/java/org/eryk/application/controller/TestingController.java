@@ -65,10 +65,11 @@ public class TestingController {
     }
 
     @RequestMapping("/changeTeamStatus")
-    public String changeTeamStatus(@RequestParam("footballerId") int id){
+    public String changeTeamStatus(@RequestParam("footballerId") int id,
+                                   @RequestParam("newStatus") String newStatus){
 
         Footballer footballer = footballerService.getFootballer(id);
-        footballer.setTeamStatus("U23/Reserves");
+        footballer.setTeamStatus(newStatus);
         footballerService.saveFootballer(footballer);
         return "redirect:/test/Squad";
     }
