@@ -29,7 +29,7 @@
             <a href="${pageContext.request.contextPath}/test/Coaches">Coaches</a>
         </div>
 
-        <h2 style="padding-left: 20px">First Team</h2>
+        <h2 style="padding-left: 20px">First Team Table - fixed size</h2>
             <table class = customTable>
                 <thead>
                     <tr>
@@ -216,7 +216,32 @@
                     <td></td>
                 </tr>
             </table>
-        <h2 style="padding-left: 20px">U23/Reserves Team</h2>
+        <h2 style="padding-left: 20px">U23/Reserves Team Table : now shows all players</h2>
+
+        <table class = customTable>
+            <thead>
+            <tr>
+                <th>Footballer</th>
+                <th>Position</th>
+                <th>Age</th>
+                <th>Club</th>
+                <th>Rate</th>
+                <th>Team Status</th>
+                <th>Mobility</th>
+            </tr>
+            </thead>
+            <c:forEach var="tempFootballer" items="${footballersList}" varStatus="counter">
+                <tr>
+                    <td>${tempFootballer.name}</td>
+                    <td>${tempFootballer.position}</td>
+                    <td>${tempFootballer.age}</td>
+                    <td>${tempFootballer.club}</td>
+                    <td>Not calculated yet</td>
+                    <td>${tempFootballer.teamStatus}</td>
+                    <td>${footballerAttributes[counter.index].mobility}</td>
+                </tr>
+            </c:forEach>
+        </table>
     </div>
     </body>
 </html>
