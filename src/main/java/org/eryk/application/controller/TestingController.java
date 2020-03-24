@@ -4,17 +4,18 @@ import org.eryk.application.entity.Footballer;
 import org.eryk.application.entity.FootballerAttributes;
 import org.eryk.application.entity.FootballerStats;
 import org.eryk.application.serviceInterfaces.FootballerServiceInterface;
+import org.eryk.application.serviceInterfaces.SquadServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.logging.Logger;
+
 
 @Controller
 @RequestMapping("/test")
@@ -23,50 +24,88 @@ public class TestingController {
     @Autowired
     private FootballerServiceInterface footballerService;
 
+    @Autowired
+    private SquadServiceInterface squadService;
+
     @RequestMapping("/mvc")
-    public String testMVCConfiguration(Model model){
+    public String testMVCConfiguration(Model model) {
 
         String message = "Mvc configuration success!";
-        model.addAttribute("testMessage",message);
+        model.addAttribute("testMessage", message);
         return "test-page";
     }
 
     @RequestMapping("/Squad")
-    public String testShowingFootballers(Model model){
+    public String showUserSquad(Model model) {
 
-        List<Footballer> list = footballerService.getTeamFootballers("Arsenal");
-        List<FootballerAttributes> attributes = new ArrayList<>();
-        List<FootballerStats> stats = new ArrayList<>();
+        //Get and divide footballers for first team/ the rest
+        List<Footballer> loadedTeam = footballerService.getTeamFootballers("Arsenal");
+        Collections.sort(loadedTeam);
 
-        for(Footballer foot: list){
-            attributes.add(foot.getAttributes());
-            stats.add(foot.getStats());
+        List<Footballer> firstTeamCandidates = squadService.filterCandidatesForMainSquad(loadedTeam);
+        List<Footballer> theRest = new ArrayList<>(loadedTeam);
+
+        theRest.removeAll(firstTeamCandidates);
+
+
+        Footballer[] preparedSquad = squadService.prepareMainSquadTable(firstTeamCandidates);
+        for (int i = 25; i < 45; i++) {
+            if (preparedSquad[i] != null) {
+                preparedSquad[i].setTeamStatus("U23/Reserves");
+                theRest.add(preparedSquad[i]);
+            }
         }
 
-        model.addAttribute("footballersList", list);
-        model.addAttribute("footballerAttributes", attributes);
-        model.addAttribute("footballerStats", stats);
+        FootballerAttributes[] firstTeamAttributes = new FootballerAttributes[25];
+        FootballerStats[] firstTeamStats = new FootballerStats[25];
+        Footballer[] firstTeam = new Footballer[25];
+
+        for (int i = 0; i < 25; i++) {
+            if (preparedSquad[i] != null) {
+                firstTeam[i] = preparedSquad[i];
+                firstTeamAttributes[i] = preparedSquad[i].getAttributes();
+                firstTeamStats[i] = preparedSquad[i].getStats();
+            }
+        }
+
+
+        List<FootballerAttributes> restAttributes = new ArrayList<>();
+        List<FootballerStats> restStats = new ArrayList<>();
+
+        for (Footballer foot : theRest) {
+            if(foot!=null) {
+                restAttributes.add(foot.getAttributes());
+                restStats.add(foot.getStats());
+            }
+        }
+
+        model.addAttribute("firstTeamFootballers", firstTeam);
+        model.addAttribute("firstTeamAttr", firstTeamAttributes);
+        model.addAttribute("firstTeamStats", firstTeamStats);
+        model.addAttribute("restFootballers", theRest);
+        model.addAttribute("restAttr", restAttributes);
+        model.addAttribute("restStats", restStats);
         return "squad";
     }
 
     @RequestMapping("/Home")
-    public String showHomePage(Model model){
+    public String showHomePage(Model model) {
         return "home";
     }
 
     @RequestMapping("/Scouting")
-    public String showScoutingPage(Model model){
+    public String showScoutingPage(Model model) {
         return "scouting";
     }
 
     @RequestMapping("/Coaches")
-    public String showCoachesPage(Model model){
+    public String showCoachesPage(Model model) {
         return "coaches";
     }
 
     @RequestMapping("/changeTeamStatus")
     public String changeTeamStatus(@RequestParam("footballerId") int id,
-                                   @RequestParam("newStatus") String newStatus){
+                                   @RequestParam("newStatus") String newStatus) {
 
         Footballer footballer = footballerService.getFootballer(id);
         footballer.setTeamStatus(newStatus);
