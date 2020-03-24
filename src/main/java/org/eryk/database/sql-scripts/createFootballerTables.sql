@@ -101,22 +101,22 @@ CREATE TABLE `fm_assistant_scheme`.`footballer_stats` (
 
     -- Insert data for testing purposes
     INSERT INTO `fm_assistant_scheme`.`footballer` VALUES
-    (1,'Eryk',23,'Poland','CB','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'U23/Reserves'),
-    (2,'Leno',23,'Poland','GK','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
-    (3,'Mustafi',23,'Poland','CB','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
-    (4,'Tierney',23,'Poland','LB','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
-    (5,'Bellerin',23,'Poland','RB','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
-    (6,'Sokratis',23,'Poland','CB','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
-    (7,'Torreira',23,'Poland','CM','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
-    (8,'Ceballos',23,'Poland','CM','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
-    (9,'Pepe',23,'Poland','RW','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
-    (10,'Ozil',23,'Poland','CAM','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
-    (11,'Lacazette',23,'Poland','ST','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
-    (12,'Aubameyang',23,'Poland','ST','Arsenal',1000000,20000,3,90.6,'club_hg',null,false,'First Team'),
-    (13,'Martinelli',23,'Poland','RW','Arsenal',1000000,20000,3,70.6,'club_hg',null,false,'First Team'),
-    (14,'Saka',23,'Poland','LW','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
-    (15,'Holding',23,'Poland','CB','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
-    (16,'Nelson',23,'Poland','RW','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team');
+    (1,'Eryk',23,'POL','CB','Arsenal',1000000,20000,3,62.6,'club_hg',null,false,'U23/Reserves'),
+    (2,'Leno',23,'GER','GK','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
+    (3,'Mustafi',23,'GER','CB','Arsenal',1000000,20000,3,75.6,'club_hg',null,false,'First Team'),
+    (4,'Tierney',23,'SCO','LB','Arsenal',1000000,20000,3,76.6,'club_hg',null,false,'First Team'),
+    (5,'Bellerin',23,'SPA','RB','Arsenal',1000000,20000,3,81.6,'club_hg',null,false,'First Team'),
+    (6,'Sokratis',23,'GRE','CB','Arsenal',1000000,20000,3,79.6,'club_hg',null,false,'First Team'),
+    (7,'Torreira',23,'URU','CM','Arsenal',1000000,20000,3,80.6,'club_hg',null,false,'First Team'),
+    (8,'Ceballos',23,'SPA','CM','Arsenal',1000000,20000,3,82.6,'club_hg',null,false,'First Team'),
+    (9,'Pepe',23,'CIV','RW','Arsenal',1000000,20000,3,86.6,'club_hg',null,false,'First Team'),
+    (10,'Ozil',23,'GER','CAM','Arsenal',1000000,20000,3,82.6,'club_hg',null,false,'First Team'),
+    (11,'Lacazette',23,'FRA','ST','Arsenal',1000000,20000,3,85.6,'club_hg',null,false,'First Team'),
+    (12,'Aubameyang',23,'GAB','ST','Arsenal',1000000,20000,3,90.6,'club_hg',null,false,'First Team'),
+    (13,'Martinelli',23,'BRA','RW','Arsenal',1000000,20000,3,71.6,'club_hg',null,false,'First Team'),
+    (14,'Saka',23,'ENG','LW','Arsenal',1000000,20000,3,72.6,'club_hg',null,false,'First Team'),
+    (15,'Holding',23,'ENG','CB','Arsenal',1000000,20000,3,73.6,'club_hg',null,false,'First Team'),
+    (16,'Nelson',23,'ENG','RW','Arsenal',1000000,20000,3,74.6,'club_hg',null,false,'First Team');
 
     INSERT INTO `fm_assistant_scheme`.`footballer_attributes` VALUES
     (1,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,70.0,
