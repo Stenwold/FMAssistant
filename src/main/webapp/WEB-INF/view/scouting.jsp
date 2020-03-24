@@ -6,11 +6,19 @@
 <head>
     <link type="text/css"
           rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/table.css">
+
+    <link type="text/css"
+          rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/navigation-top-bar.css">
 
     <link type="text/css"
           rel="stylesheet"
           href="${pageContext.request.contextPath}/resources/select.css">
+
+    <link type="text/css"
+          rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/button.css">
 
     <title>Scouting page</title>
 </head>
@@ -28,23 +36,23 @@
 
     <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
     <div class="custom-select" style="width:200px; padding-left: 20px;">
-        <select>
+        <select name="positions">
             <option value="0">Filter positions:</option>
-            <option value="1">Goalkeeers</option>
-            <option value="2">Central defenders</option>
-            <option value="3">Fullback defenders</option>
-            <option value="4">Central midfielders</option>
-            <option value="5">Central attacking midfielders</option>
-            <option value="6">Wingers</option>
-            <option value="7">Fast strikers</option>
-            <option value="8">Strong strikers</option>
+            <option value="1">Select all</option>
+            <option value="2">Goalkeeers</option>
+            <option value="3">Central defenders</option>
+            <option value="4">Fullback defenders</option>
+            <option value="5">Central midfielders</option>
+            <option value="6">Central attacking midfielders</option>
+            <option value="7">Wingers</option>
+            <option value="8">Strikers</option>
         </select>
     </div>
 
     <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
     <div style="height: 20px"></div>
     <div class="custom-select" style="width:200px; padding-left: 20px;">
-        <select>
+        <select name="status">
             <option value="0">Filter list type:</option>
             <option value="1">Shortlist</option>
             <option value="2">League Players</option>
@@ -53,6 +61,31 @@
     </div>
 
     <script src="${pageContext.request.contextPath}/resources/selecting.js"></script>
+
+
+
+    <div class="myButton" style="padding-top: 20px; width:200px; padding-left: 20px;">
+        <c:url var="submitSearching" value="/test/scoutPlayers">
+            <c:param name="requiredPosition" value=""/>
+            <c:param name="requiredStatus" value=""/>
+        </c:url>
+        <a href="${submitSearching}"> Search</a>
+    </div>
+
+
+    <table class = customTable>
+        <thead>
+        <tr>
+            <th>Footballer</th>
+            <th>Position</th>
+            <th>Age</th>
+            <th>Club</th>
+            <th>Rate</th>
+            <th>Value</th>
+            <th>Contract</th>
+            </tr>
+        </thead>
+    </table>
 </div>
 </body>
 </html>

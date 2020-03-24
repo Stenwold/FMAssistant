@@ -112,4 +112,9 @@ public class TestingController {
         footballerService.saveFootballer(footballer);
         return "redirect:/test/Squad";
     }
+
+    @RequestMapping("/scoutPlayers")
+    public String testScoutPlayers(){
+        return null;
+    }
 }
