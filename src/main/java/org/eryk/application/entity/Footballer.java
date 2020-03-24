@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="footballer")
-public class Footballer {
+public class Footballer implements Comparable<Footballer>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -184,5 +184,25 @@ public class Footballer {
                 ", position='" + position + '\'' +
                 ", club='" + club + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Footballer footballer) {
+
+
+        //ordering by rating first
+        if(footballer.getPositionRating()<this.getPositionRating())
+            return 1;
+        else if(footballer.getPositionRating()>this.getPositionRating())
+            return -1;
+        else
+            //if positions are the same, positionRate is next factor
+        {
+            if (footballer.getPosition().ordinal() < this.getPosition().ordinal())
+                return 1;
+            else if (footballer.getPosition().ordinal() > this.getPosition().ordinal())
+                return -1;
+            else return 1;
+        }
     }
 }
