@@ -67,16 +67,29 @@
     <div style="height: 20px"></div>
     <table class = "customTable">
         <thead>
-        <tr>
-            <th>Footballer</th>
-            <th>Position</th>
-            <th>Age</th>
-            <th>Club</th>
-            <th>Rate</th>
-            <th>Value</th>
-            <th>Contract</th>
+            <tr>
+                <th>Footballer</th>
+                <th>Position</th>
+                <th>Age</th>
+                <th>Club</th>
+                <th>Rate</th>
+                <th>Value</th>
+                <th>Contract</th>
             </tr>
         </thead>
+        <c:forEach var="scoutedFootballer" items="${scouted}" varStatus="counter">
+            <c:if test="${scoutedFootballer!=null}">
+                <tr>
+                    <td>${scoutedFootballer.name}</td>
+                    <td>${scoutedFootballer.position}</td>
+                    <td>${scoutedFootballer.age}</td>
+                    <td>${scoutedFootballer.club}</td>
+                    <td>${scoutedFootballer.positionRating}</td>
+                    <td>${scoutedFootballer.value}</td>
+                    <td>${scoutedFootballer.contract}</td>
+                </tr>
+            </c:if>
+        </c:forEach>
     </table>
 </div>
 <script src="${pageContext.request.contextPath}/resources/selecting.js"></script>

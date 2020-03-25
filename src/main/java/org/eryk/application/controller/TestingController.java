@@ -120,9 +120,8 @@ public class TestingController {
     if((!positions.equals("null")&&(!status.equals("null")))){
         //If user submit form with both parameters set, server response executes code below
 
-        // TODO: add code which will find proper footballers list on the basis of @RequestParams
-        // TODO: add list to the model and load view again
-
+        List<Footballer> scouted = footballerService.getScoutedFootballers(positions,status);
+        model.addAttribute("scouted", scouted);
     }
         return "/scouting";
     }
