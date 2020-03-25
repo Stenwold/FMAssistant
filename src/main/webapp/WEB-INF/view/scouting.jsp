@@ -35,19 +35,20 @@
     <h2 style="padding-left: 20px">Scouting network</h2>
 
     <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
-    <div class="custom-select" style="width:200px; padding-left: 20px;">
-        <select name="positions">
-            <option value="0">Filter positions:</option>
-            <option value="1">Select all</option>
-            <option value="2">Goalkeeers</option>
-            <option value="3">Central defenders</option>
-            <option value="4">Fullback defenders</option>
-            <option value="5">Central midfielders</option>
-            <option value="6">Central attacking midfielders</option>
-            <option value="7">Wingers</option>
-            <option value="8">Strikers</option>
-        </select>
-    </div>
+    <form action="${pageContext.request.contextPath}/test/scoutPlayers"  method="post">
+        <div class="custom-select" style="width:200px; padding-left: 20px;">
+                <select name="positions" id = 1>
+                    <option value=null>Filter positions:</option>
+                    <option value="ALL">Select all</option>
+                    <option value="GK">Goalkeeers</option>
+                    <option value="CB">Central defenders</option>
+                    <option value="FB">Fullback defenders</option>
+                    <option value="CM">Central midfielders</option>
+                    <option value="CAM">Central attacking midfielders</option>
+                    <option value="W">Wingers</option>
+                    <option value="ST">Strikers</option>
+                </select>
+        </div>
 
     <!--surround the select box with a "custom-select" DIV element. Remember to set the width:-->
     <div style="height: 20px"></div>
@@ -59,21 +60,12 @@
             <option value="3">Best Players</option>
         </select>
     </div>
-
-    <script src="${pageContext.request.contextPath}/resources/selecting.js"></script>
-
-
-
-    <div class="myButton" style="padding-top: 20px; width:200px; padding-left: 20px;">
-        <c:url var="submitSearching" value="/test/scoutPlayers">
-            <c:param name="requiredPosition" value=""/>
-            <c:param name="requiredStatus" value=""/>
-        </c:url>
-        <a href="${submitSearching}"> Search</a>
-    </div>
-
-
-    <table class = customTable>
+        <div style="padding-left: 20px; padding-top: 20px">
+            <input type="submit" value="Search">
+        </div>
+    </form>
+    <div style="height: 20px"></div>
+    <table class = "customTable">
         <thead>
         <tr>
             <th>Footballer</th>
@@ -87,5 +79,6 @@
         </thead>
     </table>
 </div>
+<script src="${pageContext.request.contextPath}/resources/selecting.js"></script>
 </body>
 </html>
