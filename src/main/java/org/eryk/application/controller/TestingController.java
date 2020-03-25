@@ -73,7 +73,7 @@ public class TestingController {
         List<FootballerStats> restStats = new ArrayList<>();
 
         for (Footballer foot : theRest) {
-            if(foot!=null) {
+            if (foot != null) {
                 restAttributes.add(foot.getAttributes());
                 restStats.add(foot.getStats());
             }
@@ -114,7 +114,16 @@ public class TestingController {
     }
 
     @RequestMapping("/scoutPlayers")
-    public String testScoutPlayers(){
-        return null;
+    public String testScoutPlayers(@RequestParam("positions") String positions,
+                                   @RequestParam("status") String status,
+                                   Model model) {
+    if((!positions.equals("null")&&(!status.equals("null")))){
+        //If user submit form with both parameters set, server response executes code below
+
+        // TODO: add code which will find proper footballers list on the basis of @RequestParams
+        // TODO: add list to the model and load view again
+
+    }
+        return "/scouting";
     }
 }
