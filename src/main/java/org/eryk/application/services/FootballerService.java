@@ -44,4 +44,12 @@ public class FootballerService implements FootballerServiceInterface {
     public List<Footballer> getTeamFootballers(String team) {
         return footballerDAO.getTeamFootballers(team);
     }
+
+    @Override
+    @Transactional
+    public List<Footballer> getScoutedFootballers(String position, String status) {
+        return footballerDAO.getScoutedFootballers(position,status);
+    }
+
+
 }

@@ -15,4 +15,6 @@ public interface FootballerServiceInterface {
     void deleteFootballer();
 
     List<Footballer> getTeamFootballers(String team);
+
+    List<Footballer> getScoutedFootballers(String position, String status);
 }
