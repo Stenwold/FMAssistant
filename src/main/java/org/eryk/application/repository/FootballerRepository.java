@@ -14,6 +14,7 @@ public interface FootballerRepository {
 
     void deleteFootballer();
 
+    List<Footballer> getScoutedFootballers(String position, String status);
 
     List<Footballer> getTeamFootballers(String team);
 }
