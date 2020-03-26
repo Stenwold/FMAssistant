@@ -1,5 +1,7 @@
 package org.eryk.application.entity;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity
@@ -37,11 +39,24 @@ public class Footballer implements Comparable<Footballer>{
 
     private boolean shortList;
 
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @OneToOne(fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.PERSIST,
+            },
             mappedBy = "footballer")
     private FootballerAttributes attributes;
 
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @OneToOne(fetch = FetchType.LAZY,
+            cascade = {CascadeType.DETACH,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.PERSIST,
+
+            },
             mappedBy = "footballer")
     private FootballerStats stats;
 
