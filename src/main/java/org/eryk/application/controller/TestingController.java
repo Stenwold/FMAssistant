@@ -3,6 +3,7 @@ package org.eryk.application.controller;
 import org.eryk.application.entity.Footballer;
 import org.eryk.application.entity.FootballerAttributes;
 import org.eryk.application.entity.FootballerStats;
+import org.eryk.application.serviceInterfaces.DataLoadServiceInterface;
 import org.eryk.application.serviceInterfaces.FootballerServiceInterface;
 import org.eryk.application.serviceInterfaces.SquadServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class TestingController {
 
     @Autowired
     private SquadServiceInterface squadService;
+
+    @Autowired
+    private DataLoadServiceInterface dataLoadServiceInterface;
 
     @RequestMapping("/mvc")
     public String testMVCConfiguration(Model model) {
@@ -100,6 +104,7 @@ public class TestingController {
 
     @RequestMapping("/Coaches")
     public String showCoachesPage(Model model) {
+        dataLoadServiceInterface.loadData("TestingFile","ownPlayers");
         return "coaches";
     }
 
