@@ -30,6 +30,7 @@ CREATE TABLE `fm_assistant_scheme`.`footballer` (
     AUTO_INCREMENT=1
     DEFAULT CHARSET=latin1;
 
+ALTER TABLE `fm_assistant_scheme`.`footballer` CHANGE `name` `name` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- Footballer_attributes table
 DROP TABLE IF EXISTS `fm_assistant_scheme`.`footballer_attributes`;
