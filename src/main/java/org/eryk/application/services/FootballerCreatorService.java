@@ -19,9 +19,7 @@ public class FootballerCreatorService implements FootballerCreatorServiceInterfa
     @Override
     @Transactional
     public void createFootballer(Elements cells, String type) {
-
         {
-            if (type.equals("ownPlayers")) {
 
                 Footballer inserted;
                 FootballerAttributes insertedAttr;
@@ -37,9 +35,9 @@ public class FootballerCreatorService implements FootballerCreatorServiceInterfa
 
                 inserted.setId(Integer.parseInt(cells.get(0).text()));
                 inserted.setName(cells.get(40).text());
-                inserted.setClub("Arsenal");
+                //inserted.setClub("Arsenal");
                 inserted.setPosition(findBestPos(cells.get(2).text()));
-                inserted.setTeamStatus("U23/Reserves");
+                //inserted.setTeamStatus("U23/Reserves");
 
                 insertedAttr.setDefending(
                         (Integer.parseInt(cells.get(16).text())
@@ -111,7 +109,7 @@ public class FootballerCreatorService implements FootballerCreatorServiceInterfa
                 insertedAttr.setFootballer(inserted);
                 footballerDAO.saveFootballer(inserted);
 
-            }
+
         }
 
     }
