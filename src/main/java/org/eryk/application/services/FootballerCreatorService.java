@@ -23,10 +23,20 @@ public class FootballerCreatorService implements FootballerCreatorServiceInterfa
         {
             if (type.equals("ownPlayers")) {
 
-                Footballer inserted = new Footballer();
-                FootballerAttributes insertedAttr = new FootballerAttributes();
+                Footballer inserted;
+                FootballerAttributes insertedAttr;
+                if((inserted = footballerDAO.getFootballer(Integer.parseInt(cells.get(0).text()))) == null){
+                    inserted = new Footballer();
+                    insertedAttr = new FootballerAttributes();
+                } else {
+                    insertedAttr = inserted.getAttributes();
+                }
+
+
+
 
                 inserted.setId(Integer.parseInt(cells.get(0).text()));
+                inserted.setName(cells.get(40).text());
                 inserted.setClub("Arsenal");
                 inserted.setPosition(findBestPos(cells.get(2).text()));
                 inserted.setTeamStatus("U23/Reserves");
