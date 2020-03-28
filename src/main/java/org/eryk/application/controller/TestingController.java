@@ -104,7 +104,7 @@ public class TestingController {
 
     @RequestMapping("/Coaches")
     public String showCoachesPage(Model model) {
-        dataLoadServiceInterface.loadData("TestingFile","ownPlayers");
+        dataLoadServiceInterface.loadData("TestFileShortlist","otherPlayers");
         return "coaches";
     }
 

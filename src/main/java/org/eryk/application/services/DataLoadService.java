@@ -18,13 +18,37 @@ public class DataLoadService implements DataLoadServiceInterface {
     private FootballerCreatorServiceInterface footballerCreatorService;
 
     private String[] ownPlayersTemplate = new String[]{
-            "Name","Tea","Best Pos","Fla","Wor","Vis","Pos","OtB","Cnt","Dec","Det","Cmp","Ant","Bra","Agg",
-            "Tec","Tck","Pas","Mar","Lon","Hea","Fre","Fir","Fin","Dri","Cro","Cor","Acc","Agi","Bal","Jum",
-            "Nat","Pac","Sta","Str"
+            "UID","1v1","Acc","Aer","Agg","Ant",
+            "Agi","Bal","Bra","Com","Cmd","Cmp",
+            "Cnt","Cro","Dec","Det","Dri","Fin",
+            "Fir","Fla","Han","Hea","Jum","Kic",
+            "Lon","Mar","Nat","OtB","Pac","Pas",
+            "Pos","Ref","Sta","Str","Tck","Tea",
+            "Tec","Thr","Vis","Wor","Name","Age",
+            "Nat","EU National","Club","Personality","Value","Wage",
+            "Expires","Best Pos","Best Role","Preferred Foot","Home-Grown Status",
+
+            "Due Date","On Loan From","Apps","Gls","Ast"
     };
+
+    private String[] otherPlayersTemplate = new String[]{
+            "UID","1v1","Acc","Aer","Agg","Ant",
+            "Agi","Bal","Bra","Com","Cmd","Cmp",
+            "Cnt","Cro","Dec","Det","Dri","Fin",
+            "Fir","Fla","Han","Hea","Jum","Kic",
+            "Lon","Mar","Nat","OtB","Pac","Pas",
+            "Pos","Ref","Sta","Str","Tck","Tea",
+            "Tec","Thr","Vis","Wor","Name","Age",
+            "Nat","EU National","Club","Personality","Value","Wage",
+            "Expires","Best Pos","Best Role","Preferred Foot","Home-Grown Status",
+
+            "Inf"
+    };
+
+
     private ArrayList<String> header = new ArrayList<>();
     private String htmlName = null;
-    private String fileType;
+    private String fileType = null;
 
     @Override
 
@@ -32,6 +56,10 @@ public class DataLoadService implements DataLoadServiceInterface {
         if(fileType.equals("ownPlayers")) {
             this.fileType = fileType;
             this.convert(this.loadFile(htmlName), ownPlayersTemplate);
+        } else
+        if(fileType.equals("otherPlayers")) {
+            this.fileType = fileType;
+            this.convert(this.loadFile(htmlName), otherPlayersTemplate);
         }
     }
 
@@ -41,9 +69,8 @@ public class DataLoadService implements DataLoadServiceInterface {
         StringBuilder contentBuilder = new StringBuilder();
         try {
 
-           // BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\Focus\\IdeaProjects\\FMAssistant\\src\\main\\resources\\TestingFile.html"));
             BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(
-                    "C:\\Users\\Focus\\IdeaProjects\\FMAssistant\\src\\main\\resources\\TestingFile.html"),
+                    "C:\\Users\\Focus\\IdeaProjects\\FMAssistant\\src\\main\\resources\\"+htmlName+".html"),
                     "UTF-8"));
             this.htmlName = htmlName+".html";
             String str;
