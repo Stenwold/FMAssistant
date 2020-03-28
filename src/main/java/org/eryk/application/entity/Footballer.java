@@ -9,7 +9,6 @@ import javax.persistence.*;
 public class Footballer implements Comparable<Footballer>{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;

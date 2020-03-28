@@ -26,7 +26,7 @@ public class FootballerCreatorService implements FootballerCreatorServiceInterfa
                 Footballer inserted = new Footballer();
                 FootballerAttributes insertedAttr = new FootballerAttributes();
 
-                inserted.setName(cells.get(0).text());
+                inserted.setId(Integer.parseInt(cells.get(0).text()));
                 inserted.setClub("Arsenal");
                 inserted.setPosition(findBestPos(cells.get(2).text()));
                 inserted.setTeamStatus("U23/Reserves");

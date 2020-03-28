@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS `fm_assistant_scheme`.`footballer`;
 
 CREATE TABLE `fm_assistant_scheme`.`footballer` (
 -- General data about footballer
-    `id` int(10) NOT NULL AUTO_INCREMENT,
+    `id` int(10) NOT NULL,
     `name` varchar (30) DEFAULT null,
     `age` int(2) DEFAULT null,
     `country` varchar (20) DEFAULT null,
@@ -27,7 +27,6 @@ CREATE TABLE `fm_assistant_scheme`.`footballer` (
 )
 -- More options
     ENGINE=InnoDB
-    AUTO_INCREMENT=1
     DEFAULT CHARSET=latin1;
 
 ALTER TABLE `fm_assistant_scheme`.`footballer` CHANGE `name` `name` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -69,7 +68,6 @@ CREATE TABLE `fm_assistant_scheme`.`footballer_attributes` (
     )
 -- More options
     ENGINE=InnoDB
-    AUTO_INCREMENT=1
     DEFAULT CHARSET=latin1;
 
 -- Footballer_stats table
@@ -96,7 +94,6 @@ CREATE TABLE `fm_assistant_scheme`.`footballer_stats` (
     )
 -- More options
     ENGINE=InnoDB
-    AUTO_INCREMENT=1
     DEFAULT CHARSET=latin1;
 
 
