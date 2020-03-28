@@ -4,6 +4,6 @@ import org.jsoup.select.Elements;
 
 
 public interface FootballerCreatorServiceInterface {
-    void createFootballer(Elements cells, String type);
+    void createFootballer(Elements cells, String fileType, String loadType);
 
 }

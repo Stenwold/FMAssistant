@@ -18,7 +18,7 @@ public class FootballerCreatorService implements FootballerCreatorServiceInterfa
 
     @Override
     @Transactional
-    public void createFootballer(Elements cells, String type) {
+    public void createFootballer(Elements cells, String type, String loadType) {
         {
 
                 Footballer inserted;

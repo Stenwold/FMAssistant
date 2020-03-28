@@ -17,58 +17,24 @@ public class DataLoadService implements DataLoadServiceInterface {
     @Autowired
     private FootballerCreatorServiceInterface footballerCreatorService;
 
-    private String[] ownPlayersTemplate = new String[]{
-            "UID","1v1","Acc","Aer","Agg","Ant",
-            "Agi","Bal","Bra","Com","Cmd","Cmp",
-            "Cnt","Cro","Dec","Det","Dri","Fin",
-            "Fir","Fla","Han","Hea","Jum","Kic",
-            "Lon","Mar","Nat","OtB","Pac","Pas",
-            "Pos","Ref","Sta","Str","Tck","Tea",
-            "Tec","Thr","Vis","Wor","Name","Age",
-            "Nat","EU National","Club","Personality","Value","Wage",
-            "Expires","Best Pos","Best Role","Preferred Foot","Home-Grown Status",
-
-            "Due Date","On Loan From","Apps","Gls","Ast"
-    };
-
-    private String[] otherPlayersTemplate = new String[]{
-            "UID","1v1","Acc","Aer","Agg","Ant",
-            "Agi","Bal","Bra","Com","Cmd","Cmp",
-            "Cnt","Cro","Dec","Det","Dri","Fin",
-            "Fir","Fla","Han","Hea","Jum","Kic",
-            "Lon","Mar","Nat","OtB","Pac","Pas",
-            "Pos","Ref","Sta","Str","Tck","Tea",
-            "Tec","Thr","Vis","Wor","Name","Age",
-            "Nat","EU National","Club","Personality","Value","Wage",
-            "Expires","Best Pos","Best Role","Preferred Foot","Home-Grown Status",
-
-            "Inf"
-    };
-
-
     private ArrayList<String> header = new ArrayList<>();
-    private String htmlName = null;
-    private String fileType = null;
+    private String htmlName = null, loadType = null, fileType = null;
+
 
     @Override
 
-    public void loadData(String htmlName, String fileType){
-        if(fileType.equals("ownPlayers")) {
-            this.fileType = fileType;
-            this.convert(this.loadFile(htmlName), ownPlayersTemplate);
-        } else
-        if(fileType.equals("otherPlayers")) {
-            this.fileType = fileType;
-            this.convert(this.loadFile(htmlName), otherPlayersTemplate);
-        }
+    public void loadData(String htmlName, String loadType){
+        this.loadType = loadType;
+        convert(loadFile(htmlName));
     }
 
     //method load data from html file and returns content as String
 
     private String loadFile(String htmlName) {
-        StringBuilder contentBuilder = new StringBuilder();
-        try {
 
+        StringBuilder contentBuilder = new StringBuilder();
+
+        try {
             BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(
                     "C:\\Users\\Focus\\IdeaProjects\\FMAssistant\\src\\main\\resources\\"+htmlName+".html"),
                     "UTF-8"));
@@ -86,7 +52,7 @@ public class DataLoadService implements DataLoadServiceInterface {
 
     //method checks if order of column is right, and then create list of Footballers
 
-    private void convert(String content, String[] template) {
+    private void convert(String content) {
 
         Document document = Jsoup.parse(content);
 
@@ -97,19 +63,57 @@ public class DataLoadService implements DataLoadServiceInterface {
         for (org.jsoup.nodes.Element columnTitle : columnTitles) {
             header.add(columnTitle.text());
         }
-        if(this.checkOrder(template)){
 
-            //Extract each row (player) from document
-            Elements rows = document.getElementsByTag("tr");
+        defineFileType();
 
-            for (int r = 1; r < rows.size(); r++) {
-                Elements cells = rows.get(r).getElementsByTag("td");
-                footballerCreatorService.createFootballer(cells,fileType);
-            }
-        } else {
+        Elements rows = document.getElementsByTag("tr");
+        for (int r = 1; r < rows.size(); r++) {
+            Elements cells = rows.get(r).getElementsByTag("td");
+            footballerCreatorService.createFootballer(cells,fileType,loadType);
+        }
+
+    }
+
+    private void defineFileType(){
+
+        String[] ownPlayersTemplate = new String[]{
+                "UID","1v1","Acc","Aer","Agg","Ant",
+                "Agi","Bal","Bra","Com","Cmd","Cmp",
+                "Cnt","Cro","Dec","Det","Dri","Fin",
+                "Fir","Fla","Han","Hea","Jum","Kic",
+                "Lon","Mar","Nat","OtB","Pac","Pas",
+                "Pos","Ref","Sta","Str","Tck","Tea",
+                "Tec","Thr","Vis","Wor","Name","Age",
+                "Nat","EU National","Club","Personality","Value","Wage",
+                "Expires","Best Pos","Best Role","Preferred Foot","Home-Grown Status",
+
+                "Due Date","On Loan From","Apps","Gls","Ast"
+        };
+
+        String[] otherPlayersTemplate = new String[]{
+                "UID","1v1","Acc","Aer","Agg","Ant",
+                "Agi","Bal","Bra","Com","Cmd","Cmp",
+                "Cnt","Cro","Dec","Det","Dri","Fin",
+                "Fir","Fla","Han","Hea","Jum","Kic",
+                "Lon","Mar","Nat","OtB","Pac","Pas",
+                "Pos","Ref","Sta","Str","Tck","Tea",
+                "Tec","Thr","Vis","Wor","Name","Age",
+                "Nat","EU National","Club","Personality","Value","Wage",
+                "Expires","Best Pos","Best Role","Preferred Foot","Home-Grown Status",
+
+                "Inf"
+        };
+
+
+        if(this.checkOrder(ownPlayersTemplate)){
+            fileType = "ownPlayers";
+        } else if(this.checkOrder(otherPlayersTemplate)){
+            fileType = "otherPlayers";
+        }else {
             throw new IllegalStateException("Source file: " + htmlName + " has wrong column order");
         }
     }
+
 
     private boolean checkOrder(String[] template){
 
